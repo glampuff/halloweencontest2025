@@ -5,338 +5,147 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Concurs Machiaj Halloween 2025</title>
 
-  <!-- Font plăcut și potrivit temei -->
+  <!-- Fonturi -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Creepster&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#0b0b10;
+      --accent:#ff6b00;
+      --muted:#e0e0e0;
       --card:#121217;
-      --accent:#ff6b00; /* portocaliu */
-      --muted:#cfcfd1;
-      --shadow: 0 8px 30px rgba(0,0,0,0.6);
+      --shadow:0 8px 30px rgba(0,0,0,0.6);
     }
 
-    html,body{
-      height:100%;
+    body{
       margin:0;
-      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: radial-gradient(ellipse at top left, #1a0f2c 0%, var(--bg) 50%), linear-gradient(180deg, rgba(10,10,10,0.6), rgba(0,0,0,0.9));
+      font-family:"Montserrat",sans-serif;
+      background:radial-gradient(ellipse at top, #1a0f2c 0%, #0b0b10 70%);
       color:var(--muted);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* subtle star / dust particles */
-    .sky {
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background-image: radial-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 3px 3px;
-      opacity:0.6;
-      mix-blend-mode: screen;
-      z-index:0;
-    }
-
-    .container{
-      min-height:100%;
       display:flex;
-      align-items:center;
       justify-content:center;
-      padding:40px 20px;
-      z-index:1;
-      position:relative;
+      align-items:center;
+      min-height:100vh;
+      padding:30px 15px;
     }
 
     .card{
-      width:100%;
-      max-width:920px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      background:rgba(18,18,23,0.9);
+      border:1px solid rgba(255,255,255,0.05);
       border-radius:18px;
-      padding:26px;
-      box-shadow: var(--shadow);
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:22px;
-      align-items:start;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.03);
+      box-shadow:var(--shadow);
+      max-width:800px;
+      width:100%;
+      padding:24px;
       position:relative;
-    }
-
-    /* responsive */
-    @media (max-width:900px){
-      .card{ grid-template-columns: 1fr; max-width:680px; padding:18px; }
-    }
-
-    /* left column: text */
-    .content{
-      padding:12px 8px;
+      overflow:hidden;
     }
 
     h1{
-      font-family: "Creepster", "Montserrat", sans-serif;
-      font-size:34px;
+      font-family:"Creepster",cursive;
       color:var(--accent);
-      margin:0 0 6px 0;
-      letter-spacing:1px;
-      text-shadow: 0 2px 12px rgba(255,107,0,0.14);
+      text-align:center;
+      margin-top:0;
+      font-size:36px;
+      text-shadow:0 2px 12px rgba(255,107,0,0.3);
     }
 
-    p.lead{
-      margin:8px 0 18px 0;
-      font-size:15px;
-      line-height:1.5;
-      color:#efeef0;
+    .image-container{
+      text-align:center;
+      margin-bottom:20px;
     }
 
-    .prize{
-      background: linear-gradient(90deg, rgba(255,107,0,0.12), rgba(255,107,0,0.06));
-      border-radius:10px;
-      padding:12px;
-      display:inline-block;
-      font-weight:700;
-      color:var(--accent);
-      margin-bottom:14px;
-      font-size:15px;
-      border:1px solid rgba(255,107,0,0.08);
-      box-shadow: 0 6px 20px rgba(255,107,0,0.03) inset;
-    }
-
-    .rules{
-      background:rgba(255,255,255,0.02);
-      border-radius:10px;
-      padding:14px;
-      font-size:14px;
-      color:#ddd;
-      line-height:1.45;
-      border:1px solid rgba(255,255,255,0.02);
-    }
-
-    /* right column: image + button */
-    .side{
-      padding:8px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:14px;
-    }
-
-    .img-wrap{
-      width:100%;
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-      border:1px solid rgba(255,255,255,0.03);
-      transform: translateY(0);
-      transition: transform .5s ease;
-    }
-    .img-wrap:hover{ transform: translateY(-6px); }
-
-    .img-wrap img{
-      display:block;
+    .image-container img{
       width:100%;
       height:auto;
-      max-height:420px;
-      object-fit:cover;
-      vertical-align:middle;
+      max-height:600px;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(0,0,0,0.6);
     }
 
-    .cta{
-      width:100%;
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      align-items:center;
-      flex-direction:column;
+    p{
+      line-height:1.6;
+      font-size:15px;
     }
 
     .btn{
-      -webkit-appearance:none;
-      appearance:none;
-      background: linear-gradient(90deg, var(--accent), #ff9b3a);
+      display:block;
+      background:linear-gradient(90deg,var(--accent),#ff9b3a);
+      color:#fff;
+      text-align:center;
+      padding:14px 20px;
+      font-weight:700;
       border:none;
-      color:white;
-      padding:14px 22px;
-      font-weight:800;
+      border-radius:10px;
       font-size:16px;
-      border-radius:12px;
       cursor:pointer;
       width:100%;
-      max-width:320px;
-      box-shadow: 0 8px 30px rgba(255,107,0,0.14);
-      transition: transform .18s ease, box-shadow .18s ease;
+      max-width:300px;
+      margin:24px auto 0;
       text-transform:uppercase;
       letter-spacing:1px;
-    }
-    .btn:active{ transform: translateY(2px) scale(.998); }
-    .btn:hover{ box-shadow: 0 16px 40px rgba(255,107,0,0.18); transform: translateY(-3px); }
-
-    .small-note{
-      font-size:13px;
-      color:#bbb;
-      text-align:center;
-      max-width:320px;
+      transition:transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    /* Spooky floating elements (bat silhouettes) */
-    .bat {
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 25px rgba(255,107,0,0.25);
+    }
+
+    .fog{
       position:absolute;
-      width:80px;
-      height:40px;
-      left:12%;
-      top:6%;
-      opacity:0.12;
-      transform-origin:center;
-      animation: floatBat 6s ease-in-out infinite;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
-    }
-    .bat.two{ left:75%; top:12%; width:60px; animation-delay: 1.2s; opacity:0.14; }
-    .bat.three{ left:50%; top:2%; width:100px; animation-delay: 2.6s; opacity:0.08; }
-
-    @keyframes floatBat{
-      0%{ transform: translateY(0) rotate(0); opacity:.12; }
-      50%{ transform: translateY(-18px) rotate(-6deg); opacity:.16; }
-      100%{ transform: translateY(0) rotate(0); opacity:.12; }
-    }
-
-    /* subtle ground fog */
-    .fog {
-      position:absolute;
-      left:0; right:0; bottom:0;
-      height:120px;
-      background: linear-gradient(0deg, rgba(8,6,10,1), rgba(8,6,10,0));
+      bottom:0;
+      left:0;
+      right:0;
+      height:100px;
+      background:linear-gradient(0deg,rgba(10,10,10,1),rgba(10,10,10,0));
+      opacity:0.7;
       pointer-events:none;
-      opacity:0.6;
-      z-index:2;
     }
 
-    footer{
-      text-align:center;
-      width:100%;
-      margin-top:18px;
-      font-size:13px;
-      color:#9d9b9d;
-    }
-
-    /* little decorative moon */
-    .moon {
+    .moon{
       position:absolute;
-      right:6%;
-      top:6%;
-      width:86px;
-      height:86px;
-      border-radius:999px;
-      box-shadow: inset -8px -6px 18px rgba(0,0,0,0.45), 0 6px 18px rgba(0,0,0,0.4);
-      background: radial-gradient(circle at 30% 30%, #fff4c8 0%, #ffd88a 25%, #ffbf40 45%, #b96100 100%);
-      opacity:0.95;
-      mix-blend-mode: screen;
-      z-index:0;
+      right:5%;
+      top:5%;
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, #fff4c8 0%, #ffbf40 80%);
+      opacity:0.9;
+      box-shadow:0 0 25px rgba(255,190,100,0.3);
+      pointer-events:none;
     }
-
-    /* small decorative underline under title */
-    .title-underline{
-      width:86px;
-      height:6px;
-      border-radius:20px;
-      background: linear-gradient(90deg, rgba(255,107,0,0.9), rgba(255,155,60,0.6));
-      margin:8px 0 16px 0;
-      box-shadow: 0 6px 18px rgba(255,107,0,0.08);
-    }
-
-    /* accessible focus */
-    .btn:focus{ outline:3px solid rgba(255,155,60,0.16); outline-offset:4px; }
-
   </style>
 </head>
 <body>
-  <div class="sky" aria-hidden="true"></div>
-
-  <!-- decorative bats (SVG) -->
-  <svg class="bat" viewBox="0 0 64 32" aria-hidden="true">
-    <path d="M2 20c6-8 12-10 18-6 6-6 12-6 18 0 6-4 12-2 18 6-10-4-16 6-30 6S12 16 2 20z" fill="#0b0b10"/>
-  </svg>
-  <svg class="bat two" viewBox="0 0 64 32" aria-hidden="true">
-    <path d="M2 20c6-8 12-10 18-6 6-6 12-6 18 0 6-4 12-2 18 6-10-4-16 6-30 6S12 16 2 20z" fill="#0b0b10"/>
-  </svg>
-  <svg class="bat three" viewBox="0 0 64 32" aria-hidden="true">
-    <path d="M2 20c6-8 12-10 18-6 6-6 12-6 18 0 6-4 12-2 18 6-10-4-16 6-30 6S12 16 2 20z" fill="#0b0b10"/>
-  </svg>
-
-  <div class="container">
-    <div class="card" role="region" aria-label="Concurs Machiaj Halloween 2025">
-      <div class="content">
-        <h1>Concurs Machiaj Halloween 2025</h1>
-        <div class="title-underline" aria-hidden="true"></div>
-
-        <div class="prize">Premiul cel mare: <strong>500 lei</strong></div>
-
-        <p class="lead">
-          „Bine ai venit la Concursul de Machiaj Halloween 2025 — locul unde creativitatea prinde viață în cele mai spectaculoase transformări!
-          Între 18 și 31 octombrie, te invităm să îți arăți talentul printr-un machiaj inspirat de magia și misterul Halloween-ului.
-          Cucerește juriul și poți câștiga premiul cel mare de 500 lei
-        </p>
-
-        <div class="rules" id="concurs-text">
-          Pentru a menține competiția selectivă și serioasă, participarea implică o taxă simbolică de <strong>10 lei</strong>, destinată exclusiv susținerii organizării.<br><br>
-          Intră în concurs, surprinde-ne cu un look memorabil și demonstrează că machiajul este o formă de artă!
-        </div>
-
-        <footer>
-          <small>Perioadă: 18 — 31 octombrie 2025 • Taxă participare: 10 lei</small>
-        </footer>
-      </div>
-
-      <div class="side">
-        <a class="img-wrap" href="https://ibb.co/MxdjyCxc" target="_blank" rel="noopener noreferrer" aria-label="Deschide imaginea într-o fereastră nouă">
-          <img src="https://i.ibb.co/TxynDgx4/Imagine-Whats-App-2025-10-18-la-16-59-38-45cbaee6.jpg"
-               alt="Promo Concurs Machiaj Halloween 2025 — exemplu look" loading="lazy">
-        </a>
-
-        <div class="cta">
-          <button id="signupBtn" class="btn" aria-label="Înscrie-te la concurs">Înscrie-te</button>
-          <div class="small-note">Taxa de participare: <strong>10 lei</strong> — plata se va face prin Stripe.</div>
-        </div>
-      </div>
-
-      <!-- decorative moon -->
-      <div class="moon" aria-hidden="true"></div>
-
-      <div class="fog" aria-hidden="true"></div>
+  <div class="card">
+    <div class="moon" aria-hidden="true"></div>
+    <div class="image-container">
+      <a href="https://ibb.co/MxdjyCxc" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.ibb.co/TxynDgx4/Imagine-Whats-App-2025-10-18-la-16-59-38-45cbaee6.jpg" alt="Imagine promo Concurs Machiaj Halloween 2025">
+      </a>
     </div>
+
+    <h1>Concurs Machiaj Halloween 2025</h1>
+
+    <p>
+      Bine ai venit la Concursul de Machiaj Halloween 2025 — locul unde creativitatea prinde viață în cele mai spectaculoase transformări!  
+      Între 18 și 31 octombrie, te invităm să îți arăți talentul printr-un machiaj inspirat de magia și misterul Halloween-ului.  
+      Cucerește juriul și poți câștiga premiul cel mare de <strong>500 lei</strong>.  
+    </p>
+    <p>
+      Pentru a menține competiția selectivă și serioasă, participarea implică o taxă simbolică de <strong>10 lei</strong>, destinată exclusiv susținerii organizării.  
+      Intră în concurs, surprinde-ne cu un look memorabil și demonstrează că machiajul este o formă de artă!
+    </p>
+
+    <button class="btn" id="inscrieBtn">Înscrie-te</button>
+
+    <div class="fog" aria-hidden="true"></div>
   </div>
 
   <script>
-    // Linkul Stripe furnizat
-    const stripeUrl = "https://buy.stripe.com/5kQdRb1NVb4B7jY1cDbII01";
-
-    const btn = document.getElementById('signupBtn');
-    btn.addEventListener('click', function () {
-      // deschide in fereastra noua
-      window.open(stripeUrl, '_blank', 'noopener,noreferrer');
-    });
-
-    // mic efect: schimbă textul butonului temporar la hover/click pentru feedback
-    btn.addEventListener('mouseenter', () => btn.textContent = 'Plătește 10 lei');
-    btn.addEventListener('mouseleave', () => btn.textContent = 'Înscrie-te');
-    btn.addEventListener('focus', () => btn.style.boxShadow = '0 18px 50px rgba(255,107,0,0.22)');
-    btn.addEventListener('blur', () => btn.style.boxShadow = '');
-
-    // accesibilitate: permite Enter/Space la buton
-    btn.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        window.open(stripeUrl, '_blank', 'noopener,noreferrer');
-      }
-    });
-
-    // detectează dacă imaginea nu încarcă și afișează fallback
-    const img = document.querySelector('.img-wrap img');
-    img.addEventListener('error', () => {
-      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
-        '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="#1a0f2c"/><text x="50%" y="50%" fill="#ff9b3a" font-family="Arial" font-size="20" text-anchor="middle" alignment-baseline="middle">Imagine indisponibilă — dă click pentru a o vedea</text></svg>'
-      );
+    document.getElementById("inscrieBtn").addEventListener("click", () => {
+      window.open("https://buy.stripe.com/5kQdRb1NVb4B7jY1cDbII01", "_blank");
     });
   </script>
 </body>
