@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concurs de Machiaj Halloween 💄👻</title>
+  <style>
+    /* ====== RESET + FONT ====== */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #2b002e, #000);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ====== NAVBAR ====== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      transition: background 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.8);
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff66b2;
+    }
+
+    /* ====== HEADER ====== */
+    header {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.9)),
+                  url('https://i.imgur.com/uwWvPhg.png') center/cover fixed no-repeat;
+      padding: 0 20px;
+    }
+
+    h1 {
+      font-size: 3.3rem;
+      color: #ff69b4;
+      text-shadow: 0 0 20px #ff1493;
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { text-shadow: 0 0 15px #ff66cc; transform: scale(1); }
+      50% { text-shadow: 0 0 35px #ff1493; transform: scale(1.03); }
+    }
+
+    p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-top: 15px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    /* ====== BUTTON + EFFECT ====== */
+    .button {
+      margin-top: 40px;
+      background: #ff1493;
+      color: white;
+      text-decoration: none;
+      padding: 15px 35px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 0 20px #ff1493;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .button::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 0;
+      background: rgba(255,255,255,0.4);
+      border-radius: 50%;
+      transform: scale(1);
+      transition: width 0.6s ease, height 0.6s ease, opacity 1s ease;
+      pointer-events: none;
+    }
+    .button:hover {
+      background: #ff66b2;
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #ff66b2;
+    }
+    .button:active::after {
+      width: 200%;
+      height: 200%;
+      opacity: 0;
+    }
+
+    /* ====== SMOKE ====== */
+    .smoke {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: float 12s infinite ease-in-out alternate;
+    }
+    .smoke:nth-child(1) {
+      top: 10%;
+      left: 15%;
+      background: rgba(255,105,180,0.12);
+      animation-delay: 0s;
+    }
+    .smoke:nth-child(2) {
+      bottom: 15%;
+      right: 25%;
+      background: rgba(186,85,211,0.12);
+      animation-delay: 3s;
+    }
+    .smoke:nth-child(3) {
+      top: 50%;
+      right: 10%;
+      background: rgba(255,182,193,0.08);
+      animation-delay: 6s;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-60px) scale(1.25); }
+    }
+
+    /* ====== SECTIONS ====== */
+    section {
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: #ff99ff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #ff66cc;
+      letter-spacing: 1px;
+    }
+
+    .premii {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .premiu {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 30px;
+      border-radius: 20px;
+      width: 260px;
+      backdrop-filter: blur(6px);
+      transition: all 0.4s ease;
+      box-shadow: 0 0 10px rgba(255,255,255,0.05);
+      position: relative;
+    }
+    .premiu::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      background: linear-gradient(45deg, #ff66cc, #ff99ff, #ff66cc);
+      border-radius: 22px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: -1;
+    }
+    .premiu:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 25px rgba(255,102,204,0.3);
+    }
+    .premiu:hover::before {
+      opacity: 0.6;
+      filter: blur(6px);
+    }
+
+    footer {
+      background: #111;
+      padding: 40px;
+      color: #bbb;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer small {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    /* ====== SCROLL ANIMATION ====== */
+    .fade {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media(max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      p { font-size: 1rem; }
+      .premiu { width: 85%; }
+      nav { padding: 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">💄 <b>Halloween Glam</b></div>
+    <div class="links">
+      <a href="#premii">Premii</a>
+      <a href="#inscriere">Înscriere</a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header>
+    <div class="smoke"></div>
+    <div class="smoke"></div>
+    <div class="smoke"></div>
+    <h1>Concurs de Machiaj Halloween 2025 💄👻</h1>
+    <p>Transformă-ți pasiunea în artă și câștigă premii fabuloase!  
+      Arată-ne talentul tău printr-un machiaj inspirat de tema  
+      <b>„Frumusețea întunericului”</b>.
+    </p>
+    <a href="#inscriere" class="button">🔥 Înscrie-te acum</a>
+  </header>
+
+  <!-- PREMII -->
+  <section id="premii" class="fade">
+    <h2>🏆 Premii & Regulament</h2>
+    <div class="premii">
+      <div class="premiu">
+        <h3>🥇 Locul 1</h3>
+        <p>300 lei + promovare pe pagină</p>
+      </div>
+      <div class="premiu">
+        <h3>🥈 Locul 2</h3>
+        <p>150 lei</p>
+      </div>
+      <div class="premiu">
+        <h3>🥉 Locul 3</h3>
+        <p>50 lei + mențiune specială</p>
+      </div>
+    </div>
+    <p style="margin-top:30px;">
+      <b>Regulament (pe scurt):</b><br>
+      • Machiajul trebuie realizat personal 🎃<br>
+      • Poza/video se trimite până la <b>30 octombrie 2025</b><br>
+      • Jurizarea: creativitate, execuție, temă<br>
+      • Câștigătorii sunt anunțați pe <b>31 octombrie, ora 20:00</b>
+    </p>
+  </section>
+
+  <!-- ÎNSCRIERE -->
+  <section id="inscriere" class="fade">
+    <h2>🕸 Înscriere</h2>
+    <p>
+      💰 <b>Taxa de înscriere: 10 lei</b><br><br>
+      Această taxă simbolică ne ajută să păstrăm concursul  
+      <b>selectiv și serios</b>, evitând înscrierile de formă și  
+      oferind șanse reale celor pasionați cu adevărat.  
+      Toate fondurile merg către <b>organizarea concursului și premiile finale</b>. 🏆
+    </p>
+    <a href="https://checkout.stripe.com/pay_link_de_inlocuit" class="button">💄 Plătește taxa și înscrie-te</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Concurs de Machiaj Halloween — Toate drepturile rezervate 🎃
+    <small>Taxa de 10 lei are scopul de a menține calitatea concursului și de a susține premiile oferite.</small>
+  </footer>
+
+  <script>
+    // ====== NAVBAR SCROLL EFFECT ======
+    const nav = document.querySelector("nav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+    // ====== FADE ON SCROLL ======
+    const fadeEls = document.querySelectorAll('.fade');
+    const showOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      fadeEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < triggerBottom) el.classList.add('show');
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    showOnScroll();
+  </script>
+
+</body>
+</html>
