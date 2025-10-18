@@ -1,152 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Concurs Machiaj Halloween 2025</title>
-
-  <!-- Fonturi -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Creepster&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --bg:#0b0b10;
-      --accent:#ff6b00;
-      --muted:#e0e0e0;
-      --card:#121217;
-      --shadow:0 8px 30px rgba(0,0,0,0.6);
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+      background-image: radial-gradient(circle at top, #1a1a1a, #000000);
     }
 
-    body{
-      margin:0;
-      font-family:"Montserrat",sans-serif;
-      background:radial-gradient(ellipse at top, #1a0f2c 0%, #0b0b10 70%);
-      color:var(--muted);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      min-height:100vh;
-      padding:30px 15px;
+    h1 {
+      color: #ff7518;
+      text-shadow: 0 0 10px #ff7518, 0 0 20px #ff4500;
+      font-size: 2em;
+      margin-bottom: 10px;
     }
 
-    .card{
-      background:rgba(18,18,23,0.9);
-      border:1px solid rgba(255,255,255,0.05);
-      border-radius:18px;
-      box-shadow:var(--shadow);
-      max-width:800px;
-      width:100%;
-      padding:24px;
-      position:relative;
-      overflow:hidden;
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+      margin-top: 15px;
     }
 
-    h1{
-      font-family:"Creepster",cursive;
-      color:var(--accent);
-      text-align:center;
-      margin-top:0;
-      font-size:36px;
-      text-shadow:0 2px 12px rgba(255,107,0,0.3);
+    p {
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      font-size: 1.1em;
     }
 
-    .image-container{
-      text-align:center;
-      margin-bottom:20px;
+    u {
+      text-decoration-color: #ff7518;
     }
 
-    .image-container img{
-      width:100%;
-      height:auto;
-      max-height:600px;
-      border-radius:12px;
-      box-shadow:0 8px 30px rgba(0,0,0,0.6);
+    .btn {
+      display: inline-block;
+      background-color: #ff7518;
+      color: #fff;
+      padding: 12px 30px;
+      margin-top: 20px;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 0 15px #ff7518;
     }
 
-    p{
-      line-height:1.6;
-      font-size:15px;
+    .btn:hover {
+      background-color: #ff4500;
+      box-shadow: 0 0 25px #ff4500, 0 0 40px #ff7518;
+      transform: scale(1.05);
     }
 
-    .btn{
-      display:block;
-      background:linear-gradient(90deg,var(--accent),#ff9b3a);
-      color:#fff;
-      text-align:center;
-      padding:14px 20px;
-      font-weight:700;
-      border:none;
-      border-radius:10px;
-      font-size:16px;
-      cursor:pointer;
-      width:100%;
-      max-width:300px;
-      margin:24px auto 0;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      transition:transform 0.2s ease, box-shadow 0.2s ease;
+    footer {
+      margin-top: 30px;
+      color: #aaa;
+      font-size: 0.9em;
     }
 
-    .btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 25px rgba(255,107,0,0.25);
+    /* Efect ușor de tremur pentru lumina de Halloween */
+    @keyframes flicker {
+      0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff7518; }
+      50% { opacity: 0.8; text-shadow: 0 0 15px #ff4500; }
     }
 
-    .fog{
-      position:absolute;
-      bottom:0;
-      left:0;
-      right:0;
-      height:100px;
-      background:linear-gradient(0deg,rgba(10,10,10,1),rgba(10,10,10,0));
-      opacity:0.7;
-      pointer-events:none;
-    }
-
-    .moon{
-      position:absolute;
-      right:5%;
-      top:5%;
-      width:70px;
-      height:70px;
-      border-radius:50%;
-      background:radial-gradient(circle at 30% 30%, #fff4c8 0%, #ffbf40 80%);
-      opacity:0.9;
-      box-shadow:0 0 25px rgba(255,190,100,0.3);
-      pointer-events:none;
+    h1 {
+      animation: flicker 2s infinite;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="moon" aria-hidden="true"></div>
-    <div class="image-container">
-      <a href="https://ibb.co/MxdjyCxc" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.ibb.co/TxynDgx4/Imagine-Whats-App-2025-10-18-la-16-59-38-45cbaee6.jpg" alt="Imagine promo Concurs Machiaj Halloween 2025">
-      </a>
-    </div>
 
-    <h1>Concurs Machiaj Halloween 2025</h1>
+  <h1>Concursul de Machiaj Halloween 2025</h1>
 
-    <p>
-      Bine ai venit la Concursul de Machiaj Halloween 2025 — locul unde creativitatea prinde viață în cele mai spectaculoase transformări!  
-      Între 18 și 31 octombrie, te invităm să îți arăți talentul printr-un machiaj inspirat de magia și misterul Halloween-ului.  
-      Cucerește juriul și poți câștiga premiul cel mare de <strong>500 lei</strong>.  
-    </p>
-    <p>
-      Pentru a menține competiția selectivă și serioasă, participarea implică o taxă simbolică de <strong>10 lei</strong>, destinată exclusiv susținerii organizării.  
-      Intră în concurs, surprinde-ne cu un look memorabil și demonstrează că machiajul este o formă de artă!
-    </p>
+  <a href="https://ibb.co/MxdjyCxc" target="_blank">
+    <img src="https://i.ibb.co/TxynDgx4/Imagine-Whats-App-2025-10-18-la-16-59-38-45cbaee6.jpg" 
+         alt="Concurs Machiaj Halloween 2025">
+  </a>
 
-    <button class="btn" id="inscrieBtn">Înscrie-te</button>
+  <p>
+    Bine ai venit la <strong>Concursul de Machiaj Halloween 2025</strong> — locul unde creativitatea prinde viață în cele mai spectaculoase transformări!  
+    Între <strong>18 și 31 octombrie</strong>, te invităm să îți arăți talentul printr-un machiaj inspirat de magia și misterul Halloween-ului.  
+    Cucerește juriul și poți câștiga <strong>premiul cel mare de 500 lei</strong>!  
+    <br><br>
+    Pentru a menține competiția selectivă și serioasă, participarea implică o 
+    <u>taxă simbolică de 10 lei</u>, destinată exclusiv susținerii organizării.  
+    <br><br>
+    Intră în concurs, surprinde-ne cu un look memorabil și demonstrează că machiajul este o formă de artă!
+  </p>
 
-    <div class="fog" aria-hidden="true"></div>
-  </div>
+  <a href="https://buy.stripe.com/5kQdRb1NVb4B7jY1cDbII01" target="_blank" class="btn">Înscrie-te</a>
 
-  <script>
-    document.getElementById("inscrieBtn").addEventListener("click", () => {
-      window.open("https://buy.stripe.com/5kQdRb1NVb4B7jY1cDbII01", "_blank");
-    });
-  </script>
+  <footer>
+    🎃 Succes tuturor participanților! 👻
+  </footer>
+
 </body>
 </html>
