@@ -18,23 +18,25 @@
     h1 {
       color: #ff7518;
       text-shadow: 0 0 10px #ff7518, 0 0 20px #ff4500;
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      animation: flicker 2s infinite;
     }
 
     img {
-      max-width: 100%;
+      width: 80%;
+      max-width: 300px;
       height: auto;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     p {
-      max-width: 700px;
-      margin: 20px auto;
+      max-width: 600px;
+      margin: 15px auto;
       line-height: 1.6;
-      font-size: 1.1em;
+      font-size: 1em;
     }
 
     u {
@@ -45,9 +47,9 @@
       display: inline-block;
       background-color: #ff7518;
       color: #fff;
-      padding: 12px 30px;
-      margin-top: 20px;
-      font-size: 1.1em;
+      padding: 10px 25px;
+      margin-top: 15px;
+      font-size: 1em;
       border: none;
       border-radius: 30px;
       cursor: pointer;
@@ -63,19 +65,36 @@
     }
 
     footer {
-      margin-top: 30px;
+      margin-top: 25px;
       color: #aaa;
       font-size: 0.9em;
     }
 
-    /* Efect ușor de tremur pentru lumina de Halloween */
     @keyframes flicker {
       0%, 100% { opacity: 1; text-shadow: 0 0 10px #ff7518; }
       50% { opacity: 0.8; text-shadow: 0 0 15px #ff4500; }
     }
 
-    h1 {
-      animation: flicker 2s infinite;
+    /* Adaptare pentru ecrane mici */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.4em;
+      }
+
+      img {
+        width: 90%;
+        max-width: 250px;
+      }
+
+      p {
+        font-size: 0.95em;
+        padding: 0 10px;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.95em;
+      }
     }
   </style>
 </head>
@@ -88,6 +107,10 @@
          alt="Concurs Machiaj Halloween 2025">
   </a>
 
+  <br>
+
+  <a href="https://buy.stripe.com/5kQdRb1NVb4B7jY1cDbII01" target="_blank" class="btn">Înscrie-te</a>
+
   <p>
     Bine ai venit la <strong>Concursul de Machiaj Halloween 2025</strong> — locul unde creativitatea prinde viață în cele mai spectaculoase transformări!  
     Între <strong>18 și 31 octombrie</strong>, te invităm să îți arăți talentul printr-un machiaj inspirat de magia și misterul Halloween-ului.  
@@ -98,8 +121,6 @@
     <br><br>
     Intră în concurs, surprinde-ne cu un look memorabil și demonstrează că machiajul este o formă de artă!
   </p>
-
-  <a href="https://buy.stripe.com/5kQdRb1NVb4B7jY1cDbII01" target="_blank" class="btn">Înscrie-te</a>
 
   <footer>
     🎃 Succes tuturor participanților! 👻
